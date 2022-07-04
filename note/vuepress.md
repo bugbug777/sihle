@@ -141,3 +141,32 @@ git commit -m 'deploy'
 
 cd -
 ```
+
+## 透過 Github Action 完成自動化佈署
+
+詳細使用方法，可以參考 [jenkey2011/vuepress-deploy](https://github.com/jenkey2011/vuepress-deploy/#step-by-step-guide)
+
+1. 建立 Github `access token`
+2. 在 repo 中使用剛建立的 `token` 建立 `secrets`
+3. 參考下方的 yaml 檔案，建立一個 Github Action
+
+```yaml
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: username/repo
+        TARGET_BRANCH: master
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: docs/.vuepress/dist
+        CNAME: https://www.xxx.com
+```
