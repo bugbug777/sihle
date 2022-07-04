@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/',
+  base: '/sihle',
   title: 'Venom',
   description: 'Just playing around',
   markdown: {
