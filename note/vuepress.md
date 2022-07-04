@@ -76,10 +76,10 @@
 
 ## 基本設定
 
-如果沒有進行一些基本的設定，這會導致我們的 VuePress 網站能力受到限制，所以首先我們必須建立一個 `.vuepress` 目錄，並且在其中建立一個 `config.js` 檔案，完整路徑為 `views/.vuepress/config.js`，而 `config.js` 需要透過 CommonJS 的方式會出一個 JS 物件，這個物件中的資料即為我們針對 VuePress 的設定。
+如果沒有進行一些基本的設定，這會導致我們的 VuePress 網站能力受到限制，所以首先我們必須建立一個 `.vuepress` 目錄，並且在其中建立一個 `config.js` 檔案，完整路徑為 `.vuepress/config.js`，而 `config.js` 需要透過 CommonJS 的方式會出一個 JS 物件，這個物件中的資料即為我們針對 VuePress 的設定。
 
 :::tip
-在此的 `.vuepress` 建立在 `views` 之中，僅僅因為 `views` 是我們的 `targetDir`。<br />
+在此的 `.vuepress` 建立在 `./` 之中，也就代表專案跟目錄是我們的 `targetDir`。<br />
 [配置參考文件](https://vuepress.vuejs.org/zh/config/)
 :::
 
