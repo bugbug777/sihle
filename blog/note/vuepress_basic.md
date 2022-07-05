@@ -1,6 +1,23 @@
-# VuePress
+# VuePress Basic
 
 這裡存放學習使用 VuePress 的筆記。
+
+## 簡介 VuePress
+
+VuePress 主要由兩部分組成：
+
+- 靜態網站生成器
+- 默認主題
+
+此外，VuePress 具有良好的 SEO 優化效果，HTML 的頁面會被預先渲染完成，此後才將這些靜態頁面交由 Vue 進行接管，進而形成一個單頁式的應用，藉此彌平 SPA 被人詬病的 SEO 優化問題。
+
+### 靜態網站生成器
+
+這個生成器包含了由 Vue 驅動的[主題系統](https://vuepress.vuejs.org/zh/theme/)以及[套件 API](https://vuepress.vuejs.org/zh/plugin/)。主題系統得以讓我們使用 Vue 元件的方式進行頁面的客製化，額外的套件 API 則替 VuePress 提供強大的額外功能。
+
+### 默認主題
+
+由於 VuePress 是為了支持 Vue 的文檔撰寫而誕生的，預設的主題可以讓我們快速的建立文件。
 
 ## Quick Start
 
@@ -78,10 +95,34 @@
 
 如果沒有進行一些基本的設定，這會導致我們的 VuePress 網站能力受到限制，所以首先我們必須建立一個 `.vuepress` 目錄，並且在其中建立一個 `config.js` 檔案，完整路徑為 `.vuepress/config.js`，而 `config.js` 需要透過 CommonJS 的方式會出一個 JS 物件，這個物件中的資料即為我們針對 VuePress 的設定。
 
-:::tip
-在此的 `.vuepress` 建立在 `./` 之中，也就代表專案跟目錄是我們的 `targetDir`。<br />
+在此處的 `.vuepress` 建立在 `./` 之中，也就代表專案跟目錄是我們的 `targetDir`。<br />
 [配置參考文件](https://vuepress.vuejs.org/zh/config/)
-:::
+
+## 靜態資源
+
+所有的 Markdown 文件都會被 webpack 編譯成 Vue 組件，因此，應該更傾向於使用相對路徑（Relative URLs）來引用所有的靜態資源：
+
+```md
+![An image](./image.png)
+```
+
+### 公共文件
+
+有時，你可能需要提供一個靜態資源，但是它們並不直接被你的任何一個markdown 文件或者主題組件引用—— 舉例來說，favicons 和PWA 的圖標，在這種情形下，你可以將它們放在 .vuepress/public 中， 它們最終會被複製到生成的靜態文件夾中。
+
+### 基礎路徑
+
+如果你的網站會被部署到一個非根路徑的 repo，你將需要在 .vuepress/config.js 中設置 base，舉例來說，如果你打算將你的網站部署到 `https://foo.github.io/sihle/`，那麼 base 的值就應該被設置為 "/sihle/" (應當總是以斜杠開始，並以斜杠結束)。
+
+有了基礎路徑（Base URL），如果你希望引用一張放在 `.vuepress/public` 中的圖片，你需要使用這樣路徑：`/sihle/image.png`，然而，一旦某一天你決定去修改 base，這樣的路徑引用將會顯得異常脆弱。為了解決這個問題，VuePress 提供了內置的一個 helper `$withBase`（它被注入到了Vue 的原型上），可以幫助你生成正確的路徑：
+
+```html
+<img :src="$withBase('/foo.png')" alt="foo">
+```
+
+值得一提的是，你不僅可以在你的 Vue 組件中使用上述的語法，在Markdown 文件中亦是如此。
+
+最後補充一句，一個 base 路徑一旦被設置，它將會自動地作為前綴插入到 `.vuepress/config.js` 中所有以 `/` 開始的資源路徑中。
 
 ## 關於 Markdown 的拓展
 
@@ -140,33 +181,4 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 cd -
-```
-
-## 透過 Github Action 完成自動化佈署
-
-詳細使用方法，可以參考 [jenkey2011/vuepress-deploy](https://github.com/jenkey2011/vuepress-deploy/#step-by-step-guide)
-
-1. 建立 Github `access token`
-2. 在 repo 中使用剛建立的 `token` 建立 `secrets`
-3. 參考下方的 yaml 檔案，建立一個 Github Action
-
-```yaml
-name: Build and Deploy
-on: [push]
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: username/repo
-        TARGET_BRANCH: master
-        BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: docs/.vuepress/dist
-        CNAME: https://www.xxx.com
 ```

@@ -4,11 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev ./",
-    "build": "vuepress build ./",
+    "dev": "vuepress dev ./blog",
+    "build": "vuepress build ./blog",
     "deploy": "sh deploy.sh"
   },
   "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.3",
     "vuepress": "^1.9.7"
   }
 }
