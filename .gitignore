@@ -83,3 +83,7 @@ npm-debug.log
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,vuejs,git
+
+### MyOwn ###
+# my blog dev log file
+todo.txt

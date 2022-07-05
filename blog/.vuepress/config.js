@@ -36,9 +36,6 @@ module.exports = {
         },
       ],
     },
-    sitemap: {
-      hostname: 'https://bugbug777.github.io/sihle/'
-    },
     comment: {
       service: "disqus",
       shortname: "Sihle 的部落格",
