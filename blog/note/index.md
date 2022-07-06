@@ -13,9 +13,10 @@ meta:
 ## Javasciprt
 
 - [Javascript Basic](./js_basic.md)
+- [Javascript Object Reference](./js_obj_ref.md)
+- [Javascript Array Methods](./js_ary_methods.md)
 - [Javascript Advanced](./js_advanced.md)
-- [Javascript This 運作機制](./js_this.md)
-- [JS 陣列處理技巧](./js_array.md)
+- [Javascript This Mechanism](./js_this.md)
 
 ## Vue
 
