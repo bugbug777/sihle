@@ -25,3 +25,66 @@
 4. method, computed, watch 的差異
 
 5. computed 的 getter, setter 使用時機
+
+6. Lifecycle Hooks 的使用時機
+
+7. $nextTick 的使用時機
+
+## 關注點分離
+
+傳統做法：
+
+1. 取得文字
+2. 產生節點，寫入文字資料
+3. 渲染至畫面上
+
+> 資料通常會在 DOM 元素上，不易提取、操作
+
+關注點分離：
+
+1. 取得文字，寫入資料集
+2. 從資料集提取文字資料，產生節點並寫入
+3. 渲染至畫面上
+
+> 資料儲存於資料集，方便管理、存取
+
+實作範例：
+
+```js
+const app = document.querySelector('#app');
+
+const component = {
+  // Data
+  data: [
+    '這是資料內容',
+    '這是資料內容',
+    '這是資料內容'
+  ],
+  // Methods
+  removeData(id) {
+    this.data.splice(id, 1);
+    this.render();
+  },
+  // 渲染，此部分由 Vue 實作
+  render() {
+    const str = this.data.map((item, index) => ( /* html */
+      `<li>${item} <button type="button" data-id="${index}">刪除</button></li>`
+    )).join('');
+    app.innerHTML = `<ul>${str}</ul>`;
+
+    const btns = document.querySelectorAll('button');
+    btns.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const id = e.target.dataset.id;
+        this.removeData(id);
+      })
+    })
+  },
+  // Lifecycle Hooks
+  init() {
+    this.render();
+  }
+}
+
+component.init();
+```

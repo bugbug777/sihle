@@ -96,3 +96,100 @@ function sum(a, b = 1) {
 
 const c = sum(1); // 2
 ```
+
+## 箭頭函式
+
+語法範例程式碼：
+
+```js
+// Example 1
+const fn = (params) => {
+  const values = params;
+  return values;
+}
+
+// Example 2
+const fn = (params) => ({
+  params;
+});
+
+// Example 3
+const fn = params => params;
+```
+
+### 與 this 併用
+
+```js
+// Example 1
+var name = 'global';
+const person = {
+  name: 'Ming',
+  callName: function() {
+    console.log('1', this.name); // Ming
+    setTimeout(function() {
+      console.log('2', this.name); // global
+      console.log('3', this); // window
+    })
+  }
+}
+
+// Example 2, 箭頭函式沒有自己的 this
+var name = 'global';
+const person = {
+  name: 'Ming',
+  callName: function() {
+    console.log('1', this.name); // Ming
+    setTimeout(() => {
+      console.log('2', this.name); // Ming
+      console.log('3', this); // person
+    })
+  }
+}
+
+// Example 3, 箭頭函式沒有自己的 this
+var name = 'global';
+const person = {
+  name: 'Ming',
+  callName: () => {
+    console.log('1', this.name); // global
+  }
+}
+
+// Example 4, 箭頭函式沒有自己的 this
+var name = 'global';
+const person = {
+  name: 'Ming',
+  callMe() {
+    const callName = () => {
+      console.log('1', this.name); // Ming
+    }
+    callName();
+  }
+}
+```
+
+### 避免 this 指向錯誤
+
+```js
+// Example 1
+var obj = {
+  someone = 'Someone',
+  fn() {
+    // 透過 vm 預先存取 this
+    const vm = this;
+    setTimeout(function() {
+      console.log(vm.someone); // Someone
+    })
+  }
+}
+
+// Example 2
+var obj = {
+  someone = 'Someone',
+  fn() {
+    setTimeout(() => { // 透過 arrow func 繞開，徑直取得外層的 this 作用域
+      console.log(this.someone); // Someone
+    })
+  }
+}
+```

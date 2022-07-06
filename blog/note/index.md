@@ -17,10 +17,16 @@ meta:
 - [Javascript Array Methods](./js_ary_methods.md)
 - [Javascript Advanced](./js_advanced.md)
 - [Javascript This Mechanism](./js_this.md)
+- [Javascript Promise](./js_promise.md)
+- [Javascript ESM](./js_esm.md)
 
 ## Vue
 
 - [Vue](./vuejs.md)
+
+## Vite
+
+- [Vite](./vite.md)
 
 ## VuePress
 
