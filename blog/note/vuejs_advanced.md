@@ -87,6 +87,81 @@
 </script>
 ```
 
-## 方法
+## Computed 進階用法： getter, setter
 
-## 觸發事件
+getter 取 data 後進行渲染， setter 接收資料（也可能透過 methods）後改寫 data。
+
+```html
+<input v-model.number="num" type="number" />
+<button @click="total = num" type="button">更新</button><br />
+{{ sum }}
+
+<script>
+// 修改前
+export default {
+  data() {
+    return {
+      num: 10,
+      carts: [],
+    }
+  },
+  computed: {
+    total() {
+      let total = 0;
+      this.carts.forEach((item) => total += item.price);
+      return total;
+    }
+  }
+}
+
+// 修改後
+export default {
+  data() {
+    return {
+      num: 10,
+      sum: 0,
+      carts: [],
+    }
+  },
+  computed: {
+    total:{ 
+      get() {
+        let total = 0;
+        this.carts.forEach((item) => total += item.price);
+        return this.sum || total; // 有 sum 就回傳
+      },
+      set(value) {
+        this.sum = value * 0.8; // 簡單的處理 打折
+      }
+    }
+  }
+}
+
+</script>
+```
+
+## Watch 進階用法： 深層監聽
+
+監聽物件，需要與資料同名，並且與物件的形式定義。
+
+```js
+export default {
+  data() {
+    return {
+      product: {
+        name: 'Apple',
+        price: 100,
+        vegan: true
+      }
+    }
+  }
+  watch: {
+    product: {
+      handler(newValue, oldValue) {
+        console.log(newValue, oldValue);
+      },
+      deep: true,
+    },
+  }
+}
+```
