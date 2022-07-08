@@ -464,3 +464,70 @@ unmounted 則是元件要卸載的週期。
 ### 關於父子元件的生命週期
 
 參考連結：[勇者鬥 Vue 龍 - 父元件及子元件間的生命週期(Lifecycle)](https://peterhpchen.github.io/VuejsQuest/basic/parent-child-lifecycle.html#%E7%88%B6%E5%85%83%E4%BB%B6%E5%8F%8A%E5%AD%90%E5%85%83%E4%BB%B6%E9%96%93%E7%9A%84%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F-lifecycle)
+
+## Vue Router
+
+前端路由
+
+### 巢狀路由
+
+### 具名視圖
+
+```js
+// Example 1, 一般的巢狀結構
+const routes = [
+  {
+    path: '/'
+    name: 'Home',
+    children: [
+      {
+        path: 'metawall',
+        component: () => import('@/views/IndexView.vue')
+      }
+    ]
+  }
+]
+
+// Example 2, 具名視圖
+const routes = [
+  {
+    path: '/'
+    name: 'Home',
+    children: [
+      {
+        path: 'metawall',
+        components: {
+          left: () => import('@/views/LeftComponent.vue'),
+          right: () => import('@/views/RightComponent.vue')
+        }
+      }
+    ]
+  }
+]
+```
+
+View 或 Component 本質上其實都是 Vue 的元件（Component），不過 View 更像是一個展示畫面的容器， Component 則是具有功能導向的元件，因此經常可以看見在 View 中引入、使用 Component。
+
+### 動態路由
+
+主要解決重複性高的路由結構，例：特定的產品頁面（每個產品帶有不同的編號
+
+結構類似這樣：`/products/:product_id`
+
+透過 Props 實作動態路由
+
+```js
+// 如果不是在 routes 透過 props 處理，就只是把相同的程式碼，搬到元件中實作。
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    children: [
+      {
+        path: 'products/:id',
+        props: (route) => route.params.id
+      }
+    ]
+  }
+]
+```

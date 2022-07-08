@@ -24,6 +24,7 @@ meta:
 
 - [Vue Basic](./vuejs_basic.md)
 - [Vue Options API](./vuejs_options_api.md)
+- [Vue Compoents](./vuejs_components.md)
 - [Vue Advanced](./vuejs_advanced.md)
 
 ## Vite
