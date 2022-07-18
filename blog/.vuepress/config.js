@@ -41,5 +41,6 @@ module.exports = {
       shortname: "Sihle 的部落格",
     },
     smoothScroll: true,
-  }
+  },
+  plugins: ['@vuepress/back-to-top']
 }

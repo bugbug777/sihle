@@ -9,6 +9,7 @@
     "deploy": "sh deploy.sh"
   },
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.7",
     "@vuepress/theme-blog": "^2.3.3",
     "vuepress": "^1.9.7"
   }
