@@ -39,14 +39,12 @@ module.exports = {
         },
       ],
     },
-    directories: [
-        {
-          id: 'post',
-          dirname: '_posts',
-          path: '/',
-          pagination: { lengthPerPage: 10 },
-        }
-    ],
+    globalPagination: {
+      prevText:'上一頁', // Text for previous links.
+      nextText:'下一頁', // Text for next links.
+      lengthPerPage:'10', // Maximum number of posts per page.
+      layout:'Pagination', // Layout for pagination page
+    },
     comment: {
       service: "disqus",
       shortname: "Sihle 的部落格",
