@@ -47,7 +47,7 @@ module.exports = {
     },
     comment: {
       service: "disqus",
-      shortname: "Sihle 的部落格",
+      shortname: "sihle",
     },
   },
   plugins: ['@vuepress/back-to-top']
