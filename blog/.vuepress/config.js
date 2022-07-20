@@ -45,6 +45,9 @@ module.exports = {
       lengthPerPage:'10', // Maximum number of posts per page.
       layout:'Pagination', // Layout for pagination page
     },
+    sitemap: {
+      hostname: 'https://bugbug777.github.io'
+    },
     comment: {
       service: "disqus",
       shortname: "sihle",
