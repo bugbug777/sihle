@@ -46,7 +46,7 @@ module.exports = {
       layout:'Pagination', // Layout for pagination page
     },
     sitemap: {
-      hostname: 'https://bugbug777.github.io'
+      hostname: 'https://bugbug777.github.io/sihle'
     },
     comment: {
       service: "disqus",
