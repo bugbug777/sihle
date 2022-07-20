@@ -14,4 +14,4 @@ summary: 我不想要看到醜醜的 VuePress 自動捕捉的 summary
 
 VuePress Blog 首Po，順便藉著這次學習 VuePress 的機會，我想順便建立一個簡單的 Blog。
 
-如果你也對 VuePress 有點興趣可以參考關於我的 [VuePress 入門筆記](../note/vuepress_basic.md)。
+如果你也對 VuePress 有點興趣可以參考關於我的 [VuePress 入門筆記](https://bugbug777.github.io/notebook/frontend/vuepress/vuepress_basic.html#%E7%B0%A1%E4%BB%8B-vuepress)。
