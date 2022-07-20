@@ -39,6 +39,14 @@ module.exports = {
         },
       ],
     },
+    directories: [
+        {
+          id: 'post',
+          dirname: '_posts',
+          path: '/',
+          pagination: { lengthPerPage: 10 },
+        }
+    ],
     comment: {
       service: "disqus",
       shortname: "Sihle 的部落格",
