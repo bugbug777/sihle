@@ -5,7 +5,7 @@ tags:
   - Vue
   - VuePress
 date: 2022-07-05
-author: bugbug777
+author: sihle
 location: Taipei
 summary: 我不想要看到醜醜的 VuePress 自動捕捉的 summary
 ---

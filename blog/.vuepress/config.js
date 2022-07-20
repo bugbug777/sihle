@@ -2,6 +2,7 @@ module.exports = {
   base: '/sihle/',
   title: "Sihle's Blog",
   description: 'Sihle 的個人部落格.',
+
   markdown: {
     lineNumbers: true
   },
@@ -10,8 +11,10 @@ module.exports = {
       lang: 'zh-Hant-TW'
     }
   },
+
   theme: '@vuepress/theme-blog',
   themeConfig: {
+    smoothScroll: true,
     dateFormat: 'YYYY-MM-DD',
     nav: [
       { text: '標籤', link: '/tag/' },
@@ -40,7 +43,6 @@ module.exports = {
       service: "disqus",
       shortname: "Sihle 的部落格",
     },
-    smoothScroll: true,
   },
   plugins: ['@vuepress/back-to-top']
 }
