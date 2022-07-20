@@ -54,6 +54,9 @@ module.exports = {
       content: '請輸入您的電子郵件',
       submitText: '訂閱',
       endpoint: 'https://gmail.us13.list-manage.com/subscribe/post?u=987c20a31af5a6b53881fed49&amp;id=12d7a474f6'
+    },
+    feed: {
+      canonical_base: 'https://bugbug777.github.io'
     }
   },
   plugins: ['@vuepress/back-to-top']
