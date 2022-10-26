@@ -19,7 +19,6 @@ module.exports = {
     nav: [
       { text: '標籤', link: '/tag/' },
       { text: '文章', link: '/' },
-      { text: '筆記心得', link: 'https://bugbug777.github.io/notebook/' },
     ],
     footer: {
       contact: [
