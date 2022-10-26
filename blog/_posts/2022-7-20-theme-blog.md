@@ -2,7 +2,6 @@
 title: 如何使用 VuePress 建立自己的個人部落格
 tags:
   - VuePress
-  - theme-blog
 date: 2022-07-20
 author: sihle
 location: Taipei

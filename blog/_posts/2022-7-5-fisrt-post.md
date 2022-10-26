@@ -1,8 +1,6 @@
 ---
 title: VuePress Blog 首Po
 tags:
-  - Javascript
-  - Vue
   - VuePress
 date: 2022-07-05
 author: sihle
