@@ -57,13 +57,10 @@ module.exports = {
       canonical_base: 'https://bugbug777.github.io'
     }
   },
-  plugins: [
-    '@vuepress/back-to-top',
-    [
-      '@vuepress/google-analytics',
-      {
-        'ga': 'G-GCE9H0D372'
-      }
-    ]
-  ]
+  plugins: {
+    '@vuepress/back-to-top': true,
+    '@vuepress/google-analytics': {
+      'ga': 'G-GCE9H0D372'
+    }
+  }
 }
