@@ -16,7 +16,7 @@ module.exports = {
     smoothScroll: true,
     dateFormat: 'YYYY-MM-DD',
     nav: [
-      { text: '標籤', link: '/tag/' },
+      { text: '分類', link: '/tag/' },
       { text: '文章', link: '/' },
     ],
     footer: {
@@ -57,5 +57,13 @@ module.exports = {
       canonical_base: 'https://bugbug777.github.io'
     }
   },
-  plugins: ['@vuepress/back-to-top']
+  plugins: [
+    '@vuepress/back-to-top',
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'G-GCE9H0D372'
+      }
+    ]
+  ]
 }
