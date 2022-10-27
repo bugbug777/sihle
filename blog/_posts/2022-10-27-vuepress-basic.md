@@ -1,29 +1,34 @@
 ---
-title: 如何使用 VuePress 建立自己的個人部落格
+title: 使用 VuePress 快速建置個人部落格
+date: 2022-10-27
+author: sihle
+location: New Taipei City
 tags:
   - VuePress
-date: 2022-07-20
-author: sihle
-location: Taipei
+  - Tutorials
 summary: 使用 VuePress 快速建立一個極簡的個人部落格。
 ---
 
 ![VuePress](../assets/images/vuepress.png)
 
-接下來我會帶你使用 VuePress 快速地建立一個極簡風格的個人部落格，但是在正式進入今天的主題之前，建議在閱讀下面的內容前，你已經熟悉或大略了解這些東西：
+## VuePress 簡介
 
-- [Markdown](https://markdown.tw/)
-- [Vue](https://vuejs.org/)
-- [VuePress](https://vuepress.vuejs.org/)
+VuePress 主要被用來快速建置靜態網站，網頁會透過預渲染 HTMl 的方式生成，因此會有良好的 SEO 表現，但是網頁加載完成後，網頁內容會透過 Vue 進行接管，因此同時又帶有 SPA 效能優異的特性。
 
-## 如何開始？
+VuePress 本身也透過插件來擴充其功能，由於其誕生的初衷是為了支援 Vue 的相關文檔輸出，因此大量的官方維護插件在這個面向提供大量的支援，例如：文檔智搜功能、back-to-top、last-updated ... 等等。
 
-由於我們的部落格是基於 VuePress 的套件，因此首先我們必須安裝 `@vuepress/theme-blog` 這個套件。
+事實上，在使用 VuePress 開發時，由於 VuePress 是基於 Vue、Vue Router、Webpack 打造的靜態網站生成器，並且可以提供一定程度的客製化功能，對於熟悉 Vue 框架開發的開發者來說，對 VuePress 網站進行一定程度的客製化是相當容易且實際的。
 
-並且，我們可以透過簡單的一個指令完成專案的初始化。
+## 快速開始
+
+這裡可以依照官方的文件從零開始構建自己的 VuePress Blog，當然前提是你需要對 VuePress 有一定程度的熟悉，當然主要還是透過 Plugins 的方式，所以喜歡自己動手研究的朋友，也可以全部從頭自己來，這點是肯定沒有問題的。
+
+不過這裡我打算採用一個比較取巧的方式，也就是利用 VuePress 提供的建置工具來快速完成網站的構建。
+
+請參考下面的指令完成網站的建立：
 
 ```shell
-# 建立專案並進入互動模式
+# 建立 VP 專案並進入互動模式
 yarn create vuepress [blogName]
 
 # 切換目錄並安裝所需檔案
