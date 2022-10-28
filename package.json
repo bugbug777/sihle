@@ -13,5 +13,8 @@
     "@vuepress/plugin-google-analytics": "^1.9.7",
     "@vuepress/theme-blog": "^2.3.3",
     "vuepress": "^1.9.7"
+  },
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
   }
 }

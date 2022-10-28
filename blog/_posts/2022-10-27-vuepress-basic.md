@@ -9,7 +9,7 @@ tags:
 summary: 使用 VuePress 快速建立一個極簡的個人部落格。
 ---
 
-![VuePress](../assets/images/vuepress.png)
+![VuePress](../assets/images/vuepress/vuepress.png)
 
 ## VuePress 簡介
 
@@ -39,7 +39,7 @@ yarn dev
 ```
 
 過程預覽：
-![VuePress CLI](../assets/images/vuepress-cli.png)
+![VuePress CLI](../assets/images/vuepress/vuepress-cli.png)
 
 > 以下如果遇到相關的套件安裝，都會使用 `yarn` 進行，這是基於 VuePress 官方的建議
 
@@ -53,7 +53,7 @@ yarn add vuepress @vuepress/theme-blog -D
 
 如果一切都相當順利的話，你會在終端看到 `http://localhost:8080/` 類似這樣的網址，表示目前本地端開發用的網站伺服器已經被開啟，我們透過此連結預覽我們的部落格。
 
-![Blog Preview](../assets/images/blog-preview.png)
+![Blog Preview](../assets/images/vuepress/blog-preview.png)
 
 ## 專案目錄結構
 
@@ -62,7 +62,7 @@ yarn add vuepress @vuepress/theme-blog -D
 由於我們的 `VuePress` 是基於 [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) 所以了解相關的結構，會有助於我們對部落格進行客製化的調校。
 
 檔案目錄結構：
-![Directory Structure](../assets/images/dir-structure.png)
+![Directory Structure](../assets/images/vuepress/dir-structure.png)
 
 - `docs` - 對應我們專案中的 `blog`。
 - `_posts` - 是必須同名且存在的目錄，其中存放相關的部落格文章。
@@ -162,10 +162,10 @@ location: Taipei
 接著，由 3 個 `-` 串連的 `---` 前後包裹著一些語法的這坨東西稱為 `frontmatter`，而這個對應的語法稱為 `YAML` 這裡不深入說明這兩個東西，記住這樣的格式並且了解這樣的語法，這可以替我們的文章進行 SEO 優化，以及提供一些文章的相關資訊給我們的部落格網站使用，例如：`tag` 可以提供這篇文章的分類，並且可以在導覽列的地方，連結到進行分類文章的檢索頁面。
 
 文章列表預覽：
-![文章列表](../assets/images/landing-page.png)
+![文章列表](../assets/images/vuepress/landing-page.png)
 
 文章內容預覽：
-![文章內容](../assets/images/post-page.png)
+![文章內容](../assets/images/vuepress/post-page.png)
 
 ## 結語
 
