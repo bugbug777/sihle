@@ -6,7 +6,7 @@ location: New Taipei City, Taiwan
 tags:
   - HTML
   - Tutorials
-summary: 介紹並使用 HTML 建立一個簡單、基礎的網頁。
+summary: 介紹並使用 HTML 技術建立一個簡單、基礎的網頁。
 ---
 
 ## 什麼是 HTML？
@@ -114,9 +114,9 @@ HTML 作為網頁的基石，主要作為內容的呈現以及網頁的結構，
 
 ## 未提及的東西
 
-- class 屬性以及 id 屬性的用途
+- [class 屬性以及 id 屬性的用途](2022-10-30-web-devlopment-css.md#class-屬性以及-id-屬性的用途)
 - 檔案路徑撰寫方式
-- 如何引入 CSS 樣式表
+- [如何引入 CSS 樣式表](2022-10-30-web-devlopment-css.md#如何引入-css)
 - 如何引入 JS 程式碼
 - HTML 表單
 - BOM（ HTML APIs ）
