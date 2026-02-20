@@ -1,7 +1,6 @@
 baseURL = 'https://blog.sihle.cc/'
 languageCode = 'zh-tw'
 title = 'SIHLE'
-theme = ''
 
 # 預設使用繁體中文
 defaultContentLanguage = 'zh-tw'
