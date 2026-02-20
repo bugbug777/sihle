@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <script>
+    (function () {
+      var s = localStorage.getItem('theme-preference');
+      var theme = s || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  {{- partial "head.html" . -}}
+</head>
+
+<body>
+  {{- partial "header.html" . -}}
+  <main class="container">
+    {{- block "main" . }}{{- end }}
+  </main>
+  {{- partial "footer.html" . -}}
+  <script src="/js/theme.js"></script>
+</body>
+
+</html>

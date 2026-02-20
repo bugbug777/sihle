@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ if .IsHome }}
+<section class="hero">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="hero-tagline">Thoughts, ideas, and stories.</p>
+</section>
+{{ else }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ end }}
+
+<section class="post-list">
+    {{ range .Paginator.Pages }}
+    <article class="post-card">
+        <a href="{{ .RelPermalink }}" class="post-card-link">
+            <h2 class="post-card-title">{{ .Title }}</h2>
+            <div class="post-card-meta">
+                <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+                {{ with .Params.categories }}
+                <span class="post-card-categories">
+                    {{ range . }}
+                    <span class="category-tag">{{ . }}</span>
+                    {{ end }}
+                </span>
+                {{ end }}
+            </div>
+            {{ if .Description }}
+            <p class="post-card-desc">{{ .Description }}</p>
+            {{ else }}
+            <p class="post-card-desc">{{ .Summary | plainify | truncate 120 }}</p>
+            {{ end }}
+        </a>
+    </article>
+    {{ end }}
+</section>
+
+{{ template "_internal/pagination.html" . }}
+{{ end }}

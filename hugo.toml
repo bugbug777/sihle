@@ -1,0 +1,37 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-tw'
+title = 'SIHLE'
+theme = ''
+
+# 預設使用繁體中文
+defaultContentLanguage = 'zh-tw'
+
+# 分類法
+[taxonomies]
+  category = 'categories'
+
+# RSS
+[outputs]
+  home = ['HTML', 'RSS']
+
+# 語法高亮
+[markup]
+  [markup.highlight]
+    style = 'dracula'
+    lineNos = false
+    guessSyntax = true
+
+# 選單
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menus.main]]
+    name = 'Categories'
+    url = '/categories/'
+    weight = 2
+
+# 每頁文章數
+[pagination]
+  pagerSize = 10
