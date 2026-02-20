@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://blog.sihle.cc/'
 languageCode = 'zh-tw'
 title = 'SIHLE'
 theme = ''
@@ -6,11 +6,14 @@ theme = ''
 # 預設使用繁體中文
 defaultContentLanguage = 'zh-tw'
 
+# 啟用 robots.txt
+enableRobotsTXT = true
+
 # 分類法
 [taxonomies]
   category = 'categories'
 
-# RSS
+# RSS + Sitemap
 [outputs]
   home = ['HTML', 'RSS']
 
@@ -35,3 +38,8 @@ defaultContentLanguage = 'zh-tw'
 # 每頁文章數
 [pagination]
   pagerSize = 10
+
+# 網站參數（供 SEO meta tags 使用）
+[params]
+  description = 'SIHLE 的個人部落格 — 筆記、技術、想法'
+  author = 'SIHLE'

@@ -59,7 +59,7 @@ description: '文章簡短描述，會顯示在列表頁'
 | `date` | 發布日期（ISO 8601 格式） |
 | `draft` | `true` = 草稿（不會被建置）；`false` = 正式發布 |
 | `categories` | 分類，可設定多個，例如 `['技術', '筆記']` |
-| `description` | 文章描述，用於列表頁摘要和 SEO |
+| `description` | 文章描述，同時用於列表頁摘要、Open Graph 社群分享預覽、Twitter Card 和 SEO meta 標籤。**強烈建議每篇文章都填寫** |
 
 ### 撰寫內容
 
@@ -110,11 +110,14 @@ content/
 ## 建置靜態網站
 
 ```bash
-hugo
+hugo --gc --minify
 ```
 
+- `--gc`：清理未使用的快取檔案
+- `--minify`：壓縮 HTML/CSS/JS 產出
 - 產出的靜態檔案位於 `public/` 目錄
 - 這個目錄的內容就是可以直接部署的網站
+- Hugo 會自動產生 `sitemap.xml` 和 `robots.txt`
 
 ---
 
@@ -166,7 +169,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --gc --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -189,10 +192,10 @@ jobs:
 
 5. 推送後，GitHub Actions 會自動建置並部署
 
-6. 記得更新 `hugo.toml` 中的 `baseURL` 為你的 GitHub Pages 網址：
+6. 記得更新 `hugo.toml` 中的 `baseURL` 為你的實際網域：
 
 ```toml
-baseURL = 'https://你的帳號.github.io/你的倉庫名/'
+baseURL = 'https://blog.sihle.cc/'
 ```
 
 ### 方法二：手動部署
@@ -217,6 +220,23 @@ git push -f origin main
 
 ---
 
+## SEO 與網站設定
+
+`hugo.toml` 中的 `[params]` 區段包含網站層級的 SEO 設定：
+
+```toml
+[params]
+  description = 'SIHLE 的個人部落格 — 筆記、技術、想法'
+  author = 'SIHLE'
+```
+
+- `description`：當文章沒有設定 `description` 時，會作為 meta description、Open Graph 和 Twitter Card 的預設描述
+- `author`：用於 JSON-LD 結構化資料和 meta author 標籤
+- 網站會自動產生 `robots.txt`（由 `enableRobotsTXT = true` 控制）
+- `sitemap.xml` 會在每次建置時自動更新
+
+---
+
 ## 常用指令一覽
 
 | 指令 | 說明 |
@@ -224,8 +244,7 @@ git push -f origin main
 | `hugo new posts/文章名稱.md` | 新增文章 |
 | `hugo server -D` | 本地預覽（含草稿） |
 | `hugo server` | 本地預覽（不含草稿） |
-| `hugo` | 建置靜態網站到 `public/` |
-| `hugo --minify` | 建置並壓縮 |
+| `hugo --gc --minify` | 建置、清理快取並壓縮產出 |
 
 ---
 
